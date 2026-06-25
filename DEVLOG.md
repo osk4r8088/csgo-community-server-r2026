@@ -9,8 +9,8 @@ Complete history of decisions, bugs, fixes, and architecture insights. Reference
 ### Timeline
 
 **Day 1 (2026-03-10): Docker to Host**
-- Started with Docker-based srcds. Spent hours debugging Steam authentication.
-- `SteamAPI_Init() failed; create pipe failed` — Docker's IPC isolation breaks Steam's client library. `ipc:host`, `privileged`, shared `/tmp` — nothing worked.
+- Started with Docker-based srcds. Spent 2 hours debugging Steam authentication.
+- `SteamAPI_Init() failed; create pipe failed` — Docker's IPC isolation breaks Steam's client library. `ipc:host`, `privileged`, shared `/tmp` , nothing worked
 - Abandoned Docker entirely. Installed srcds directly on host at `/srv/csgo-host/`.
 - App ID patching: SteamCMD installs app 730, but the 2026 client expects 4465480. Must patch `steam.inf` and `steam_appid.txt`.
 - NoLobbyReservation: The original vanz666 repo has outdated gamedata signatures. The eldoradoel fork has working ones. Without this plugin, clients get infinite "Retrying..." with no error message.
@@ -164,7 +164,7 @@ systemd manages the wrapper, which manages start.sh, which manages srcds.
 
 | Issue | Notes |
 |-------|-------|
-| Retake needs 2-player testing | Spawn configs downloaded, 1-player instant-wins (expected) |
+| Retake needs 2-player testing | Spawn configs downloaded |
 | Arena needs 2-player testing | bot_quota fixed, team joining untested with 2 players |
 | Surf zones need manual setup | Admin must `!zones` on each new map |
 | FastDL is ephemeral | Running `python3 -m http.server 27020` — needs systemd service |
@@ -227,10 +227,10 @@ systemd manages the wrapper, which manages start.sh, which manages srcds.
 ## Server Infrastructure
 
 ### VPS
-- **Provider:** Contabo
+- **Provider:** ***********
 - **OS:** Ubuntu 24.04
 - **RAM:** 8 GB
-- **IP:** 194.163.151.122
+- **IP:** **************
 - **Disk:** 65% used (server files ~35 GB)
 
 ### Paths
